@@ -1,0 +1,50 @@
+{
+  "name": "storefrontbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "install-modules": "rimraf ./node_modules && npm install --force",
+    "build": "npm run clean && npm run prettier-format && npx tsc",
+    "build-first-time": "npm run clean && npm run install-modules && npm run prettier-format && npx tsc",
+    "start:prod": "npm run build && node dist/index.js",
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --ext .ts --fix",
+    "prettier-format": "prettier --config .prettierrc.json  \"src/**/*.ts\" --write",
+    "test": "npx tsc && jasmine",
+    "start": "npm run build && npm run lint-fix && npm run test && nodemon src/index.ts",
+    "start-first-time": "npm run build-first-time && npm run lint-fix && npm run test && nodemon src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/jasmine": "^4.3.0",
+    "@types/jest": "^29.2.3",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^18.11.9",
+    "@types/sharp": "^0.31.0",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jasmine": "^4.5.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.0",
+    "rimraf": "^3.0.2",
+    "supertest": "^6.3.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "sharp": "^0.31.2"
+  }
+}
