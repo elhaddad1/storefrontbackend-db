@@ -1,7 +1,14 @@
 
-# Image Processing API
+# Storefront Backend
 
-An image processing and optimization API allows you to convert the format of any type of image and optimize them for its size and other factors. For example, you can convert an image in JPG into PNG or reduce a bigger image to a smaller one.
+In the project for this course, you will create an API with Node and Postgres that will support an online store front end. This API will do the following:
+
+Allow products to be created and stored in a database
+Allow users to sign up and sign in
+
+Require users to be signed in to perform certain actions
+
+Allow users to create orders and add products to orders
 
 
 
@@ -63,7 +70,7 @@ http://localhost:3000
 ## API Endpoints
 
 ```URL
-http://localhost:3000/api/resizeimage?filename=fjord.jpg&width=%27500%27&height=%27450%27
+
 
 
 ```
@@ -75,9 +82,6 @@ http://localhost:3000/api/resizeimage?filename=fjord.jpg&width=%27500%27&height=
 Server URL
 
 ```URL
-http://localhost:3000/api/resizeimage?filename=fjord.jpg&width=%27500%27&height=%27450%27
-http://localhost:3000/api/resizeimage?filename=icelandwaterfall.jpg&width=%27500%27&height=%27450%27
-http://localhost:3000/api/resizeimage?filename=fjord.jpg&width=%27260%27&height=%27450%27
-http://localhost:3000/api/resizeimage?filename=fjord.jpg&width=%27400%27&height=%27450%27
+
 
 ```
