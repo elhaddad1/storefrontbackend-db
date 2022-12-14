@@ -9,6 +9,7 @@ describe('Product Model', () => {
             price: '40.25',
             category: 'Test category',
         })
+        console.log(result)
         expect(result).toEqual({
             id: 1,
             name: 'Test product',
@@ -24,6 +25,7 @@ describe('Product Model', () => {
             price: '50.25',
             category: 'New category',
         })
+        console.log(result)
         expect(result).toEqual({
             id: 1,
             name: 'Test product 2',
@@ -34,6 +36,7 @@ describe('Product Model', () => {
 
     it('Test return all products', async () => {
         const result = await productModel.getProducts()
+        console.log(result)
         expect(result).toEqual([
             {
                 id: 1,
@@ -46,6 +49,7 @@ describe('Product Model', () => {
 
     it('Test return product by id', async () => {
         const result = await productModel.getProductById(1)
+        console.log(result)
         expect(result).toEqual({
             id: 1,
             name: 'Test product 2',

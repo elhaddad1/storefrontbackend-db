@@ -1,14 +1,13 @@
 import express from 'express'
 import ProductsController from '../controllers/ProductsController'
-import { UsersModel } from '../models/users_model'
+import { authToken } from '../middleware/response_middleware'
 
 const productsRouter = express.Router()
 const productcontroller = new ProductsController()
-const userMode = new UsersModel()
 
-productsRouter.get('/', userMode.authToken, productcontroller.getAll)
-productsRouter.get('/:id', userMode.authToken, productcontroller.getById)
-productsRouter.post('/create', userMode.authToken, productcontroller.create)
-productsRouter.put('/:id', userMode.authToken, productcontroller.update)
-productsRouter.delete('/:id', userMode.authToken, productcontroller.delete)
+productsRouter.get('/', authToken, productcontroller.getAll)
+productsRouter.get('/:id', authToken, productcontroller.getById)
+productsRouter.post('/create', authToken, productcontroller.create)
+productsRouter.put('/:id', authToken, productcontroller.update)
+productsRouter.delete('/:id', authToken, productcontroller.delete)
 export default productsRouter

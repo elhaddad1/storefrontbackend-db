@@ -26,8 +26,8 @@ describe('Test Product controllers: ', () => {
             })
     })
 
-    it('Test delete product by id', () => {
-        request
+    it('Test delete product by id', async () => {
+        await request
             .delete('/api/products/1')
             .set('Authorization', `Bearer ${token}`)
             .expect(200)

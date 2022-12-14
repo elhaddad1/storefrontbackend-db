@@ -1,14 +1,13 @@
 import express from 'express'
 import OrdersController from '../controllers/OrderController'
-import { UsersModel } from '../models/users_model'
+import { authToken } from '../middleware/response_middleware'
 
 const ordersRouter = express.Router()
 const ordercontroller = new OrdersController()
-const userMode = new UsersModel()
 
-ordersRouter.get('/', userMode.authToken, ordercontroller.getAll)
-ordersRouter.get('/:id', userMode.authToken, ordercontroller.getById)
-ordersRouter.post('/create', userMode.authToken, ordercontroller.create)
-ordersRouter.put('/:id', userMode.authToken, ordercontroller.update)
-ordersRouter.delete('/:id', userMode.authToken, ordercontroller.delete)
+ordersRouter.get('/', authToken, ordercontroller.getAll)
+ordersRouter.get('/:id', authToken, ordercontroller.getById)
+ordersRouter.post('/create', authToken, ordercontroller.create)
+ordersRouter.put('/:id', authToken, ordercontroller.update)
+ordersRouter.delete('/:id', authToken, ordercontroller.delete)
 export default ordersRouter

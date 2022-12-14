@@ -1,2 +1,2 @@
 /* Replace with your SQL commands */
-drop users_tb;
+drop table users_tb;

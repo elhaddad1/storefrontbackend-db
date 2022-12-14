@@ -1,2 +1,2 @@
 /* Replace with your SQL commands */
-drop orders_tb;
+drop table orders_tb;

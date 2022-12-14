@@ -1,9 +1,9 @@
 import express, { Application, Request, Response } from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
-import { page404Erro } from './middleware/responsecases'
 import path from 'path'
 import apiRouter from './routes/routes'
+import page404Erro from './middleware/response_middleware'
 
 const PORT = process.env.PORT || 3000
 // create an instance server

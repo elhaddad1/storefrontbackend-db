@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf ./dist",
-    "create-dev-db": "db-migrate --config database_create.json db:create full_stack_dev && db-migrate up -e dev",
-    "create-test-db": "db-migrate --config database_create.json db:create full_stack_test",
     "install-modules": "rimraf ./node_modules && npm install --force",
     "build": "npm run clean && npm run prettier-format && npx tsc",
     "build-first-time": "npm run clean && npm run install-modules && npm run prettier-format && npx tsc",
@@ -14,10 +12,10 @@
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix",
     "prettier-format": "prettier --config .prettierrc.json  \"src/**/*.ts\" --write",
-    "reset-test-db": "db-migrate reset -e test",
-    "reset-dev-db": "db-migrate reset -e dev",
-    "test": "ENV=test db-migrate --env test up && npx tsc && jasmine && db-migrate db:drop test",
-    "start": "ENV=dev && npm run build && npm run lint-fix && npm run test && nodemon src/index.ts",
+    "reset-test-db": "NODE_ENV=test db-migrate reset -e test",
+    "reset-dev-db": "NODE_ENV=dev db-migrate reset -e dev",
+    "test": "npm run reset-test-db && db-migrate up -e test && npm run build && NODE_ENV=test jasmine && npm run reset-test-db",
+    "start": "npm run build && npm run lint-fix && npm run test && NODE_ENV=dev nodemon src/index.ts",
     "start-first-time": "npm run build-first-time && npm run lint-fix && npm run test && nodemon src/index.ts"
   },
   "keywords": [],
@@ -47,7 +45,8 @@
     "rimraf": "^3.0.2",
     "supertest": "^6.3.1",
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.3",
+    "tsc-watch": "^6.0.0"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
