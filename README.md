@@ -67,21 +67,15 @@ Server URL
 http://localhost:3000
 
 ```
-## API Endpoints
 
-```URL
-
-
-
+### Environment variables 
+The following environment variable are needed.
 ```
-
-
-
-##  Samples requests
-
-Server URL
-
-```URL
-
-
+POSTGRES_HOST="localhost"
+DEV_POSTGRES_DB="store_db"
+TEST_POSTGRES_DB="store_db_test"
+POSTGRES_USER="postgres"
+POSTGRES_PASSWORD="P@ssw0rd"
+NODE_ENV="dev"
+TOKEN_SECRET="jllgshllWEUJHGHYJkjsfjds90"
 ```
