@@ -34,6 +34,7 @@ export default class UsersController {
 
     async create(req: express.Request, res: express.Response) {
         try {
+            console.log(req.body)
             if (!(req.body.username || !req.body.password)) {
                 return res.status(400).json({
                     error: 'Please provide username and password',
