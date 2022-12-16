@@ -33,12 +33,12 @@ export class UsersModel {
         try {
             const connection = await client.connect()
             const sql =
-                'INSERT INTO users_tb (username, firstname, lastname, password_digest) VALUES($1, $2, $3, $4) RETURNING *'
+                'INSERT INTO users_tb (username, first_name, last_name, password_digest) VALUES($1, $2, $3, $4) RETURNING *'
 
             const result = await connection.query(sql, [
                 u.username,
-                u.firstname,
-                u.lastname,
+                u.first_name,
+                u.last_name,
                 u.password,
             ])
             connection.release()
@@ -46,7 +46,7 @@ export class UsersModel {
             return result.rows[0]
         } catch (err) {
             throw new Error(
-                `Could not add new user ${u.firstname}. Error: ${err}`
+                `Could not add new user ${u.first_name}. Error: ${err}`
             )
         }
     }
@@ -54,13 +54,13 @@ export class UsersModel {
     async updateUser(u: User_md): Promise<User_md> {
         try {
             const connection = await client.connect()
-            const sql = `UPDATE users_tb SET username = $2, firstname = $3, lastname = $4, password_digest = $5 WHERE id = $1 RETURNING *`
+            const sql = `UPDATE users_tb SET username = $2, first_name = $3, last_name = $4, password_digest = $5 WHERE id = $1 RETURNING *`
 
             const result = await connection.query(sql, [
                 u.id,
                 u.username,
-                u.firstname,
-                u.lastname,
+                u.first_name,
+                u.last_name,
                 u.password,
             ])
             connection.release()

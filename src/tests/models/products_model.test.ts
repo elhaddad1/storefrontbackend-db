@@ -9,7 +9,6 @@ describe('Product Model', () => {
             price: '40.25',
             category: 'Test category',
         })
-        console.log(result)
         expect(result).toEqual({
             id: 1,
             name: 'Test product',

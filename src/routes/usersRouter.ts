@@ -7,7 +7,7 @@ const usersController = new UsersController()
 
 usersRouter.get('/', usersController.getUsers)
 usersRouter.get('/:id', usersController.getUserById)
-usersRouter.post('/create', usersController.createUser)
-usersRouter.put('/:id', authToken, usersController.updateUser)
-usersRouter.delete('/:id', authToken, usersController.deleteUser)
+usersRouter.post('/create', usersController.create)
+usersRouter.put('/:id', authToken, usersController.update)
+usersRouter.delete('/:id', authToken, usersController.delete)
 export default usersRouter

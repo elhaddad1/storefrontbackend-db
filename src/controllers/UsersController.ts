@@ -32,7 +32,7 @@ export default class UsersController {
         }
     }
 
-    async createUser(req: express.Request, res: express.Response) {
+    async create(req: express.Request, res: express.Response) {
         try {
             if (!(req.body.username || !req.body.password)) {
                 return res.status(400).json({
@@ -47,8 +47,8 @@ export default class UsersController {
 
             const user: UserAut_md = await usersModel.createUser({
                 username: req.body.username as string,
-                firstname: req.body.firstname as string,
-                lastname: req.body.lastname as string,
+                first_name: req.body.first_name as string,
+                last_name: req.body.last_name as string,
                 password: hashedPassword,
             })
 
@@ -62,7 +62,7 @@ export default class UsersController {
         }
     }
 
-    async updateUser(req: express.Request, res: express.Response) {
+    async update(req: express.Request, res: express.Response) {
         try {
             if (!req.body.username || !req.body.password) {
                 return res.status(400).json({
@@ -72,8 +72,8 @@ export default class UsersController {
             const user = await usersModel.updateUser({
                 id: parseInt(req.params.id as string),
                 username: req.body.username as string,
-                firstname: req.body.firstname as string,
-                lastname: req.body.lastname as string,
+                first_name: req.body.first_name as string,
+                last_name: req.body.last_name as string,
                 password: req.body.password as string,
             })
             res.status(201).json(user)
@@ -82,7 +82,7 @@ export default class UsersController {
         }
     }
 
-    async deleteUser(req: express.Request, res: express.Response) {
+    async delete(req: express.Request, res: express.Response) {
         try {
             await usersModel.deleteUser(parseInt(req.params.id as string))
             res.status(200).json({

@@ -58,8 +58,8 @@ CREATE TABLE products (
 The table includes the following fields:
 - id
 - username
-- firstName
-- lastName
+- first_name
+- last_name
 - password
 The SQL schema for this table is as follows:
 ```sql
