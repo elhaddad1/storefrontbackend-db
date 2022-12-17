@@ -17,19 +17,38 @@ Allow users to create orders and add products to orders
 - [@elhadad](https://github.com/elhaddad1)
 
 
-## Installation
+## Installation Instructions
+Please make sure that `postgres` is installed on your local system and the server is running.
+### Dev mode
+To install the app's dependencies and use the app in dev mode, run the following: 
 
-Install All Packages
+configure .env file with the required variables (mentioned below).
+
+`npm run reset-dev-db` runs a script that uses db-migrate to reset tabels on dev database.
+
+To run the app in dev mode execute `yarn start`.
+### Test mode
+To install the app's dependencies and use the app in test mode, run the following:
+
+`npm run test`
+
+
+### Ports
+The application runs on port `3000` with database on `5432`.
+
+
+
+## Install All Packages
 
 ```bash
   npm install
 ```
 
-Run build Command 
+## Run build Command 
 ```bash
   npm run build
 ```
-Start application
+## Start application
     
 ```bash
   npm run start
