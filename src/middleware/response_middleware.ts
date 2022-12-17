@@ -14,6 +14,8 @@ export const authToken = (req: Request, res: Response, next: NextFunction) => {
             ? authorizationHeader.split(' ')[1]
             : ''
 
+        res.setHeader('access-token', token)
+        res.setHeader('token', token)
         res.locals.userData = jwt.verify(
             token,
             process.env.TOKEN_SECRET as string
